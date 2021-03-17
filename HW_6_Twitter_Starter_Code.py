@@ -159,6 +159,7 @@ def make_request_with_cache(baseurl, hashtag, count):
     #TODO Implement function
     params = {'q': hashtag, 'count': count}
     request_key = construct_unique_key(baseurl, params)
+
     if request_key in CACHE_DICT.keys():
         print("Cache hit", request_key)
         return CACHE_DICT[request_key]

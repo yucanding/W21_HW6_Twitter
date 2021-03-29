@@ -149,7 +149,7 @@ def make_request_with_cache(baseurl, hashtag, count):
         The hashtag to search for
     count: integer
         The number of results you request from Twitter
-    
+
     Returns
     -------
     dict
@@ -161,10 +161,10 @@ def make_request_with_cache(baseurl, hashtag, count):
     request_key = construct_unique_key(baseurl, params)
 
     if request_key in CACHE_DICT.keys():
-        print("Cache hit", request_key)
+        print("fetching cached data")
         return CACHE_DICT[request_key]
     else:
-        print("Cache miss", request_key)
+        print("making new request")
         CACHE_DICT[request_key] = make_request(baseurl, params)
         save_cache(CACHE_DICT)
         return CACHE_DICT[request_key]
